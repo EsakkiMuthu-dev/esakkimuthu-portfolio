@@ -383,13 +383,13 @@ interface SettingsDocumentData {
   /**
    * CTA Link field in *settings*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
    * - **API ID Path**: settings.cta_link
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  cta_link: prismic.KeyTextField;
+  cta_link: prismic.LinkField;
 
   /**
    * CTA Label field in *settings*

@@ -40,10 +40,13 @@
         }
       },
       "cta_link": {
-        "type": "Text",
+        "type": "Link",
         "config": {
           "label": "CTA Link",
-          "placeholder": ""
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null,
+          "allowText": true
         }
       },
       "cta_label": {
