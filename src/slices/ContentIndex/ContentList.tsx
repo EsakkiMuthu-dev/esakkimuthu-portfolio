@@ -34,8 +34,8 @@ export default function ContentList({
 
   useEffect(() => {
     // Animate list-items in with a stagger
-    let ctx = gsap.context(() => {
-      itemsRef.current.forEach((item, index) => {
+    const ctx = gsap.context(() => {
+      itemsRef.current.forEach((item) => {
         gsap.fromTo(
           item,
           {
