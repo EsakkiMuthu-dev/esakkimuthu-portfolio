@@ -60,7 +60,7 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
       className="-mx-16 wrapper overflow-hidden"
       ref={component}>
       <Bounded as="div">
-        <Heading size="lg" className="mb-8" as="h2">
+        <Heading size="lg" className="mb-8 mx-16" as="h2">
           {slice.primary.heading}
         </Heading>
       </Bounded>
