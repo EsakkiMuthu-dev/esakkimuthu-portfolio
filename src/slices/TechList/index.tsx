@@ -57,10 +57,10 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
     <section
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
-      className="-mx-16 wrapper overflow-hidden"
+      className="w-full wrapper overflow-hidden"
       ref={component}>
       <Bounded as="div">
-        <Heading size="lg" className="mb-8 mx-16" as="h2">
+        <Heading size="lg" className="mb-8" as="h2">
           {slice.primary.heading}
         </Heading>
       </Bounded>
@@ -73,7 +73,7 @@ const TechList = ({ slice }: TechListProps): JSX.Element => {
           {Array.from({ length: 15 }, (_, index) => (
             <React.Fragment key={index}>
               <span
-                className="tech-item text-8xl font-extrabold uppercase tracking-tighter"
+                className="tech-item text-6xl font-extrabold uppercase tracking-tighter"
                 style={{
                   color:
                     index === 7 && tech.tech_colour
