@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-slate-900">
-      <body className={clsx(urbanist.className, "relative min-h-screen")}>
+      <body className={clsx(urbanist.className, "relative min-h-screen px-16")}>
         <Header />
         {children}
         <div className="background-gradient absolute inset-0 -z-50 max-h-screen" />
