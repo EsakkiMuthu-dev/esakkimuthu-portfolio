@@ -24,7 +24,6 @@ export default function ContentList({
 }: ContentListProps) {
   const component = useRef(null);
   const itemsRef = useRef<Array<HTMLLIElement | null>>([]);
-
   const revealRef = useRef(null);
   const [currentItem, setCurrentItem] = useState<null | number>(null);
   const [hovering, setHovering] = useState(false);
@@ -70,8 +69,9 @@ export default function ContentList({
       const speed = Math.sqrt(Math.pow(mousePos.x - lastMousePos.current.x, 2));
 
       const ctx = gsap.context(() => {
-        // Animate the image holder
-        if (currentItem !== null) {
+        // Animate the image holder only if not on mobile
+        if (currentItem !== null && window.innerWidth > 768) {
+          // Adjust the width for your mobile breakpoint
           const maxY = window.scrollY + window.innerHeight - 350;
           const maxX = window.innerWidth - 250;
 
@@ -102,13 +102,19 @@ export default function ContentList({
   }, [hovering, currentItem]);
 
   const onMouseEnter = (index: number) => {
-    setCurrentItem(index);
-    if (!hovering) setHovering(true);
+    if (window.innerWidth > 768) {
+      // Adjust the width for your mobile breakpoint
+      setCurrentItem(index);
+      if (!hovering) setHovering(true);
+    }
   };
 
   const onMouseLeave = () => {
-    setHovering(false);
-    setCurrentItem(null);
+    if (window.innerWidth > 768) {
+      // Adjust the width for your mobile breakpoint
+      setHovering(false);
+      setCurrentItem(null);
+    }
   };
 
   const contentImages = items.map((item) => {
@@ -149,7 +155,7 @@ export default function ContentList({
             className="list-item opacity-0">
             <a
               href={`${urlPrefix}/${post.uid}`}
-              className="flex flex-col justify-between border-t border-t-slate-100 py-10  text-slate-200 md:flex-row "
+              className="flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row"
               aria-label={post.data.title || ""}>
               <div className="flex flex-col">
                 <span className="text-3xl font-bold">{post.data.title}</span>
@@ -170,7 +176,7 @@ export default function ContentList({
 
         {/* Hover element */}
         <div
-          className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300 sm:hover:scale-110"
+          className="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
           style={{
             backgroundImage:
               currentItem !== null ? `url(${contentImages[currentItem]})` : "",
