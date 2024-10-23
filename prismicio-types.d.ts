@@ -11,6 +11,17 @@ type BlogPostDocumentDataSlicesSlice = ImageBlockSlice | TextBlockSlice;
  */
 interface BlogPostDocumentData {
   /**
+   * Hover Image field in *Blog Post*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.hover_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hover_image: prismic.ImageField<never>;
+
+  /**
    * Title field in *Blog Post*
    *
    * - **Field Type**: Text
@@ -33,15 +44,26 @@ interface BlogPostDocumentData {
   date: prismic.DateField;
 
   /**
-   * Hover Image field in *Blog Post*
+   * GithubLink field in *Blog Post*
    *
-   * - **Field Type**: Image
+   * - **Field Type**: Link
    * - **Placeholder**: *None*
-   * - **API ID Path**: blog_post.hover_image
+   * - **API ID Path**: blog_post.githublink
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
-  hover_image: prismic.ImageField<never>;
+  githublink: prismic.LinkField;
+
+  /**
+   * Live Link field in *Blog Post*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_post.live_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  live_link: prismic.LinkField;
 
   /**
    * Slice Zone field in *Blog Post*
@@ -270,6 +292,28 @@ interface ProjectdetailsDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   hover_image: prismic.ImageField<never>;
+
+  /**
+   * GithubLink field in *Project*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projectdetails.githublink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  githublink: prismic.LinkField;
+
+  /**
+   * Live Link field in *Project*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: projectdetails.live_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  live_link: prismic.LinkField;
 
   /**
    * Slice Zone field in *Project*

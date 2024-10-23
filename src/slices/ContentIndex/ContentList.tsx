@@ -6,6 +6,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdArrowOutward } from "react-icons/md";
 import { Content } from "@prismicio/client";
+import { PrismicNextLink } from "@prismicio/next";
+import { FaArrowUpRightFromSquare, FaGithub } from "react-icons/fa6";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -158,7 +160,25 @@ export default function ContentList({
               className="flex flex-col justify-between border-t border-t-slate-100 py-10 text-slate-200 md:flex-row"
               aria-label={post.data.title || ""}>
               <div className="flex flex-col">
-                <span className="text-3xl font-bold">{post.data.title}</span>
+                <span className="text-3xl font-bold flex flex-row">
+                  {post.data.title}
+                  {isFilled.link(post.data.githublink) && (
+                    <PrismicNextLink
+                      field={post.data.githublink}
+                      className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+                      aria-label={post.data.title + "Source code on GitHub"}>
+                      <FaGithub />
+                    </PrismicNextLink>
+                  )}
+                  {isFilled.link(post.data.live_link) && (
+                    <PrismicNextLink
+                      field={post.data.live_link}
+                      className="p-2 text-2xl text-slate-300 transition-all duration-150 hover:scale-125 hover:text-yellow-400"
+                      aria-label={post.data.title + " Live Demo Link"}>
+                      <FaArrowUpRightFromSquare />
+                    </PrismicNextLink>
+                  )}
+                </span>
                 <div className="flex gap-3 text-yellow-400">
                   {post.tags.map((tag, index) => (
                     <span key={index} className="text-lg font-bold">

@@ -12,6 +12,14 @@
           "label": "UID"
         }
       },
+      "hover_image": {
+        "type": "Image",
+        "config": {
+          "label": "Hover Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
       "title": {
         "type": "Text",
         "config": {
@@ -26,12 +34,24 @@
           "placeholder": ""
         }
       },
-      "hover_image": {
-        "type": "Image",
+      "githublink": {
+        "type": "Link",
         "config": {
-          "label": "Hover Image",
-          "constraint": {},
-          "thumbnails": []
+          "label": "GithubLink",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null,
+          "allowText": true
+        }
+      },
+      "live_link": {
+        "type": "Link",
+        "config": {
+          "label": "Live Link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null,
+          "allowText": true
         }
       },
       "slices": {
