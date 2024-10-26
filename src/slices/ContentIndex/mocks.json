@@ -10,7 +10,7 @@
 			},
 			"content_type": {
 				"__TYPE__": "FieldContent",
-				"value": "Project",
+				"value": "Certificate",
 				"type": "Select"
 			},
 			"des": {
@@ -30,7 +30,6 @@
 				"type": "Text"
 			},
 			"fall_back_item_image": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1547082299-de196ea013d6",
@@ -48,6 +47,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			}
 		},

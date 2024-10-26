@@ -124,6 +124,128 @@ export type BlogPostDocument<Lang extends string = string> =
     Lang
   >;
 
+type CertificatedetailsDocumentDataSlicesSlice =
+  | ImageBlockSlice
+  | TextBlockSlice;
+
+/**
+ * Content for certificateDetails documents
+ */
+interface CertificatedetailsDocumentData {
+  /**
+   * Title field in *certificateDetails*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificatedetails.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Date field in *certificateDetails*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificatedetails.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * Hover Image field in *certificateDetails*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificatedetails.hover_image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  hover_image: prismic.ImageField<never>;
+
+  /**
+   * GithubLink field in *certificateDetails*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificatedetails.githublink
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  githublink: prismic.LinkField;
+
+  /**
+   * Live Link field in *certificateDetails*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificatedetails.live_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  live_link: prismic.LinkField;
+
+  /**
+   * Slice Zone field in *certificateDetails*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificatedetails.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CertificatedetailsDocumentDataSlicesSlice> /**
+   * Meta Title field in *certificateDetails*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: certificatedetails.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *certificateDetails*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: certificatedetails.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *certificateDetails*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: certificatedetails.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * certificateDetails document from Prismic
+ *
+ * - **API ID**: `certificatedetails`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CertificatedetailsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<CertificatedetailsDocumentData>,
+    "certificatedetails",
+    Lang
+  >;
+
 type HomepageDocumentDataSlicesSlice = HeroSlice;
 
 /**
@@ -519,6 +641,7 @@ export type SettingsDocument<Lang extends string = string> =
 
 export type AllDocumentTypes =
   | BlogPostDocument
+  | CertificatedetailsDocument
   | HomepageDocument
   | PageDocument
   | ProjectdetailsDocument
@@ -631,7 +754,7 @@ export interface ContentIndexSliceDefaultPrimary {
    * - **API ID Path**: content_index.default.primary.content_type
    * - **Documentation**: https://prismic.io/docs/field#select
    */
-  content_type: prismic.SelectField<"Blog" | "Project">;
+  content_type: prismic.SelectField<"Blog" | "Project" | "Certificate">;
 
   /**
    * Description field in *ContentIndex → Default → Primary*
@@ -1052,6 +1175,9 @@ declare module "@prismicio/client" {
       BlogPostDocument,
       BlogPostDocumentData,
       BlogPostDocumentDataSlicesSlice,
+      CertificatedetailsDocument,
+      CertificatedetailsDocumentData,
+      CertificatedetailsDocumentDataSlicesSlice,
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,

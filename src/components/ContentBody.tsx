@@ -11,13 +11,18 @@ import { FaGithub, FaArrowUpRightFromSquare } from "react-icons/fa6";
 export default function ContentBody({
   page,
 }: {
-  page: Content.BlogPostDocument | Content.ProjectdetailsDocument;
+  page:
+    | Content.BlogPostDocument
+    | Content.ProjectdetailsDocument
+    | Content.CertificatedetailsDocument;
 }) {
   const formattedDate = formatDate(page.data.date);
   return (
     <Bounded as="article">
       <div className="rounded-2xl border-2 border-slate-800 bg-slate-900 px-4 py-10 md:px-8 md:py-20">
-        <Heading as="h1">{page.data.title}</Heading>
+        <Heading as="h2" size="lg">
+          {page.data.title}
+        </Heading>
         <div className="flex flex-row">
           {isFilled.link(page.data.githublink) && (
             <PrismicNextLink

@@ -12,7 +12,10 @@ import { FaArrowUpRightFromSquare, FaGithub } from "react-icons/fa6";
 gsap.registerPlugin(ScrollTrigger);
 
 type ContentListProps = {
-  items: Content.BlogPostDocument[] | Content.ProjectdetailsDocument[];
+  items:
+    | Content.BlogPostDocument[]
+    | Content.ProjectdetailsDocument[]
+    | Content.CertificatedetailsDocument[];
   contentType: Content.ContentIndexSlice["primary"]["content_type"];
   fallbackItemImage: Content.ContentIndexSlice["primary"]["fall_back_item_image"];
   viewMoreText: Content.ContentIndexSlice["primary"]["view_more_text"];
