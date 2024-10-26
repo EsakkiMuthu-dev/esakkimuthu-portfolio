@@ -1,4 +1,5 @@
 import { Content } from "@prismicio/client";
+import { PrismicNextImage } from "@prismicio/next";
 import { SliceComponentProps } from "@prismicio/react";
 
 /**
@@ -13,10 +14,8 @@ const ImageBlock = ({ slice }: ImageBlockProps): JSX.Element => {
   return (
     <section
       data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for image_block (variation: {slice.variation})
-      Slices
+      data-slice-variation={slice.variation}>
+      <PrismicNextImage field={slice.primary.image} />
     </section>
   );
 };
